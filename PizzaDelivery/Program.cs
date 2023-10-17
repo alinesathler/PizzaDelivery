@@ -87,22 +87,13 @@ namespace PizzaDelivery {
 
             } while (order == 1);
 
-            //Checking the value of all orders
-            if(totalOrders > 25) {
-                deliveryOption = "free";
-            } else if ((0 < totalOrders) && (totalOrders <= 25)) {
-                deliveryOption = "paid";
-            } else {
-                deliveryOption = "null";
-            }
-
             //Showing the total value
-            switch (deliveryOption) {
-                case "free":
+            switch (totalOrders) {
+                case double n when (n > 25):
                     Console.WriteLine("Congratulations you qualify for free delivery.");
                     TotalPrice(totalOrders);
                     break;
-                case "paid":
+                case double n when (n > 0 && n <= 25):
                     Console.WriteLine("A delivery fee of $10 required.");
                     deliveryFee = 10;
                     TotalPrice(totalOrders, deliveryFee);
